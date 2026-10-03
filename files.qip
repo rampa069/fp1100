@@ -1,0 +1,28 @@
+# Ficheros comunes a todas las placas. Las rutas van con qip_path para que
+# valgan desde cualquier proyecto (poseidon/, calypso/, sidi/). El PLL y el
+# .sdc cambian con la placa: los pone cada .qsf.
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) common/mist-modules/mist.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) common/T80/T80.qip]
+
+# Core FP-1100
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_top.sv]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_main.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_sub.v]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_upd7801.sv]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_video.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_display.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_vfetch.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_kbd.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_ps2.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_dpram.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_sdram.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_fdc.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_cmt.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) rtl/fp1100_tape.v]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) rtl/u765/u765.sv]
+
+# uPD7800 (David Hunter, SuperCassetteVision_MiSTer, GPL). Los .svh los
+# incluye upd7800.sv; hay que decirle a Quartus donde buscarlos.
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) rtl/upd7800/upd7800.sv]
+set_global_assignment -name SEARCH_PATH [file join $::quartus(qip_path) rtl/upd7800]
